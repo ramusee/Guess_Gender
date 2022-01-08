@@ -17,15 +17,17 @@ function checkName() {
           : (UI_ELEMENTS.RESULT.textContent = `${firstName} is ${data.gender}`)
       })
       .catch(() => (UI_ELEMENTS.RESULT.textContent = 'Server error'))
-    fetch(urlCountry)
-      .then((response) => response.json())
-      .then((data) => {
-        const country = countries[data.country[0].country_id]
-        UI_ELEMENTS.RESULT.textContent = `${UI_ELEMENTS.RESULT.textContent} from ${country}`
-      })
-      .catch(
-        () =>
-          (UI_ELEMENTS.RESULT.textContent = `${UI_ELEMENTS.RESULT.textContent}. Сountry not found.`)
+      .then(
+        fetch(urlCountry)
+          .then((response) => response.json())
+          .then((data) => {
+            const country = countries[data.country[0].country_id]
+            UI_ELEMENTS.RESULT.textContent = `${UI_ELEMENTS.RESULT.textContent} from ${country}`
+          })
+          .catch(
+            () =>
+              (UI_ELEMENTS.RESULT.textContent = `${UI_ELEMENTS.RESULT.textContent}. Сountry not found.`)
+          )
       )
   }
   UI_ELEMENTS.FORM.reset()
