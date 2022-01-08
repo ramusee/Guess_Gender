@@ -12,11 +12,10 @@ function checkName() {
     fetch(urlName)
       .then((response) => response.json())
       .then((data) => {
-        data.gender === null
+        !data.gender
           ? (UI_ELEMENTS.RESULT.textContent = `${firstName} is not found`)
           : (UI_ELEMENTS.RESULT.textContent = `${firstName} is ${data.gender}`)
       })
-      .catch(() => (UI_ELEMENTS.RESULT.textContent = 'Server error'))
       .then(
         fetch(urlCountry)
           .then((response) => response.json())
