@@ -4,7 +4,7 @@ import { UI_ELEMENTS } from './view.js'
 UI_ELEMENTS.BTN.addEventListener('click', checkName)
 function checkName() {
   if (UI_ELEMENTS.NAME.value.trim() !== '') {
-    let firstName = UI_ELEMENTS.NAME.value.trim()
+    const firstName = UI_ELEMENTS.NAME.value.trim()
     const currentName = firstName[0].toUpperCase() + firstName.slice(1)
     const serverNameUrl = 'https://api.genderize.io'
     const serverCountryUrl = 'https://api.nationalize.io'
